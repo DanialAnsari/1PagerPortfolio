@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+<base href="/Danial/Portfolio.dc.html">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="description" content="Danial A. Ansari — Software Engineer portfolio">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #0a0a0b; }
+  * { box-sizing: border-box; }
+  ::selection { background: #FF5A1F; color: #fff; }
+  a { color: #FF5A1F; text-decoration: none; }
+  a:hover { color: #ffab84; }
+  input::placeholder, textarea::placeholder { color: #6b6b6b; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes floatY { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+</style>
+</helmet>
+
+<div style="background:#0a0a0b; min-height:100vh; font-family:'Inter',sans-serif; color:#fff; padding:28px 24px 80px; animation: fadeUp 0.5s ease both;">
+
+  <!-- TOP NAV -->
+  <div style="display:flex; justify-content:center; margin-bottom:56px;">
+    <div style="display:flex; gap:6px; background:#171717; border:1px solid #262626; border-radius:999px; padding:8px;">
+      <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="4">
+        <button onClick="{{ item.onClick }}" style="width:44px; height:44px; border-radius:999px; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; background:{{ item.active }} ? '#FF5A1F' : 'transparent'; color:{{ item.active }} ? '#0a0a0b' : '#c9c9c9'; transition:all 0.2s ease;" style-hover="background:#2a2a2a; color:#fff;">
+          <sc-if value="{{ item.icon }}" hint-placeholder-val="home">
+            <sc-if value="{{ item.iconIsHome }}">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>
+            </sc-if>
+            <sc-if value="{{ item.iconIsFolder }}">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6z"/></svg>
+            </sc-if>
+            <sc-if value="{{ item.iconIsBriefcase }}">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+            </sc-if>
+            <sc-if value="{{ item.iconIsWrench }}">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 1 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4z"/></svg>
+            </sc-if>
+          </sc-if>
+        </button>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div style="max-width:1280px; margin:0 auto; display:flex; gap:56px; align-items:flex-start;">
+
+    <!-- SIDEBAR -->
+    <div style="width:320px; flex-shrink:0; position:sticky; top:28px; background:#f2efe9; border-radius:28px; padding:20px; animation: fadeUp 0.6s ease both;">
+      <div style="background:#FF5A1F; border-radius:20px; aspect-ratio:1/1.05; overflow:hidden;">
+        <img src="uploads/Founder Photo.png" style="width:100%; height:100%; object-fit:cover; display:block;">
+      </div>
+      <div style="text-align:center; margin-top:18px;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:22px; color:#141414;">Danial A. Ansari</div>
+        <div style="width:26px; height:26px; border-radius:999px; background:#FF5A1F; margin:12px auto; display:flex; align-items:center; justify-content:center;">
+          <div style="width:8px; height:8px; border-radius:999px; background:#fff;"></div>
+        </div>
+        <div style="font-size:13px; line-height:1.5; color:#6b6b6b; padding:0 6px;">A Software Engineer who has developed countless innovative solutions.</div>
+        <div style="display:flex; justify-content:center; gap:10px; margin-top:18px;">
+          <a href="https://github.com/DanialAnsari" target="_blank" style="width:34px; height:34px; border-radius:999px; border:1.5px solid #FF5A1F; color:#FF5A1F; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; font-family:'Space Grotesk',sans-serif;">GH</a>
+          <a href="https://x.com/danialansari998" target="_blank" style="width:34px; height:34px; border-radius:999px; border:1.5px solid #FF5A1F; color:#FF5A1F; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; font-family:'Space Grotesk',sans-serif;">X</a>
+          <a href="https://www.linkedin.com/in/danial-ansari-4a8909186/" target="_blank" style="width:34px; height:34px; border-radius:999px; border:1.5px solid #FF5A1F; color:#FF5A1F; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; font-family:'Space Grotesk',sans-serif;">in</a>
+          <a href="mailto:danialansari998@gmail.com" style="width:34px; height:34px; border-radius:999px; border:1.5px solid #FF5A1F; color:#FF5A1F; display:flex; align-items:center; justify-content:center; font-size:14px;">✉</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN -->
+    <div style="flex:1; min-width:0;">
+
+      <!-- HOME -->
+      <sc-if value="{{ isHome }}">
+        <div style="animation: fadeUp 0.6s ease both;">
+          <h1 style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:58px; line-height:1; margin:0; color:#fff;">SOFTWARE</h1>
+          <h1 style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:58px; line-height:1; margin:0 0 22px; color:#242426;">ENGINEER</h1>
+          <p style="max-width:520px; color:#9a9a9a; font-size:15px; line-height:1.7; margin:0 0 40px;">Founder and CEO with expertise in scaling engineering teams and delivering AI/Web3 solutions. Experienced in leading end-to-end product development, strategic partnerships, and innovative blockchain protocols.</p>
+
+          <div style="display:flex; gap:44px; margin-bottom:40px; flex-wrap:wrap;">
+            <sc-for list="{{ stats }}" as="stat" hint-placeholder-count="3">
+              <div>
+                <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:34px; color:#fff;">{{ stat.value }}</div>
+                <div style="font-size:11px; letter-spacing:0.06em; color:#8a8a8a; text-transform:uppercase; line-height:1.4; margin-top:2px;">{{ stat.label }}</div>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="display:flex; gap:20px; margin-bottom:56px; flex-wrap:wrap;">
+            <div style="flex:1; min-width:220px; background:#FF5A1F; border-radius:20px; padding:24px; position:relative; overflow:hidden;">
+              <div style="width:34px; height:34px; margin-bottom:36px; position:relative;">
+                <div style="position:absolute; top:0; left:7px; width:20px; height:20px; border:2.5px solid rgba(0,0,0,0.7); transform:rotate(45deg); border-radius:3px;"></div>
+                <div style="position:absolute; top:14px; left:0; width:12px; height:12px; background:rgba(0,0,0,0.7); transform:rotate(45deg); border-radius:2px;"></div>
+              </div>
+              <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; line-height:1.4; color:#141414;">DApps using Solidity Smart Contracts, web3, EtherJS and web3-react.</div>
+            </div>
+            <div style="flex:1; min-width:220px; background:#D4FF3D; border-radius:20px; padding:24px; position:relative; overflow:hidden;">
+              <div style="width:34px; height:34px; margin-bottom:36px; position:relative;">
+                <div style="position:absolute; top:2px; left:13px; width:8px; height:30px; background:rgba(0,0,0,0.65); border-radius:4px; transform:rotate(0deg);"></div>
+                <div style="position:absolute; top:13px; left:2px; width:30px; height:8px; background:rgba(0,0,0,0.65); border-radius:4px;"></div>
+              </div>
+              <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; line-height:1.4; color:#141414;">AI solutions using LangChain, LangFuse, Qdrant, OpenAI, Claude, Jinja, and Pydantic.</div>
+            </div>
+          </div>
+
+          <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:38px; line-height:1; margin:0; color:#fff;">RECENT</h2>
+          <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:38px; line-height:1; margin:0 0 28px; color:#242426;">PROJECTS</h2>
+
+          <dc-import name="ProjectRow" hint-size="100%,auto" list="{{ featuredProjects }}"></dc-import>
+        </div>
+      </sc-if>
+
+      <!-- PROJECTS -->
+      <sc-if value="{{ isProjects }}">
+        <div style="animation: fadeUp 0.6s ease both;">
+          <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:44px; line-height:1; margin:0; color:#fff;">RECENT</h2>
+          <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:44px; line-height:1; margin:0 0 32px; color:#242426;">PROJECTS</h2>
+          <dc-import name="ProjectRow" hint-size="100%,auto" list="{{ allProjects }}" show-detail="{{ true }}"></dc-import>
+        </div>
+      </sc-if>
+
+      <!-- EXPERIENCE -->
+      <sc-if value="{{ isExperience }}">
+        <div style="animation: fadeUp 0.6s ease both;">
+          <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:44px; line-height:1; margin:0;">06 YEARS OF</h2>
+          <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:44px; line-height:1; margin:0 0 32px; color:#242426;">EXPERIENCE</h2>
+          <sc-for list="{{ experienceList }}" as="job" hint-placeholder-count="2">
+            <a href="{{ job.link }}" target="_blank" style="display:block; background:#141414; border:1px solid #232323; border-radius:20px; padding:28px 28px 24px; margin-bottom:20px; color:#fff;" style-hover="background:#1a1a1a;">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:14px;">
+                <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:20px;">{{ job.company }}</div>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF5A1F" stroke-width="2" style="flex-shrink:0;"><path d="M7 17L17 7M7 7h10v10"/></svg>
+              </div>
+              <div style="color:#9a9a9a; font-size:14px; line-height:1.75;">{{ job.description }}</div>
+              <div style="color:#6b6b6b; font-size:13px; margin-top:16px;">{{ job.dates }}</div>
+            </a>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <!-- TOOLS -->
+      <sc-if value="{{ isTools }}">
+        <div style="animation: fadeUp 0.6s ease both;">
+          <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:44px; line-height:1; margin:0;">PREMIUM</h2>
+          <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:44px; line-height:1; margin:0 0 32px; color:#242426;">TOOLS</h2>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:28px 40px;">
+            <sc-for list="{{ toolsList }}" as="tool" hint-placeholder-count="0">
+              <div style="display:flex; align-items:center; gap:16px;">
+                <div style="width:56px; height:56px; border-radius:14px; overflow:hidden; flex-shrink:0; background:{{ tool.bg }}; background-image:{{ tool.bgImage }}; background-size:40px 40px; background-position:center; background-repeat:no-repeat;"></div>
+                <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:18px;">{{ tool.name }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- CONTACT -->
+      <div style="margin-top:80px;">
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:44px; line-height:1; margin:0;">LET'S WORK</h2>
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:44px; line-height:1; margin:0 0 32px; color:#242426;">TOGETHER</h2>
+        <form onSubmit="{{ handleSubmit }}">
+          <div style="display:flex; gap:16px; margin-bottom:16px; flex-wrap:wrap;">
+            <div style="flex:1; min-width:200px;">
+              <div style="font-size:12px; color:#9a9a9a; margin-bottom:6px;">Name</div>
+              <input type="text" placeholder="Your Name" style="width:100%; background:#171717; border:1px solid #2a2a2a; border-radius:10px; padding:13px 14px; color:#fff; font-size:14px; font-family:'Inter',sans-serif;">
+            </div>
+            <div style="flex:1; min-width:200px;">
+              <div style="font-size:12px; color:#9a9a9a; margin-bottom:6px;">Email</div>
+              <input type="email" placeholder="your@email.com" style="width:100%; background:#171717; border:1px solid #2a2a2a; border-radius:10px; padding:13px 14px; color:#fff; font-size:14px; font-family:'Inter',sans-serif;">
+            </div>
+          </div>
+          <div style="margin-bottom:20px;">
+            <div style="font-size:12px; color:#9a9a9a; margin-bottom:6px;">Message</div>
+            <textarea placeholder="Message" rows="4" style="width:100%; background:#171717; border:1px solid #2a2a2a; border-radius:10px; padding:13px 14px; color:#fff; font-size:14px; font-family:'Inter',sans-serif; resize:vertical;"></textarea>
+          </div>
+          <button type="submit" style="width:100%; background:#FF5A1F; color:#141414; border:none; border-radius:10px; padding:16px; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:15px; cursor:pointer;" style-hover="background:#ff7440;">{{ submitLabel }}</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1440, &quot;height&quot;: 1000}, &quot;primaryAccent&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#FF5A1F&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#FF5A1F&quot;, &quot;#3D8BFF&quot;, &quot;#22C55E&quot;]}, &quot;secondaryAccent&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#D4FF3D&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#D4FF3D&quot;, &quot;#FFD23D&quot;, &quot;#B9F0FF&quot;]}}">
+class Component extends DCLogic {
+  state = { page: 'home', submitLabel: 'Submit' };
+
+  setPage(p) { this.setState({ page: p }); }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.setState({ submitLabel: 'Sent ✓' });
+    setTimeout(() => this.setState({ submitLabel: 'Submit' }), 2000);
+  }
+
+  renderVals() {
+    const page = this.state.page;
+    const primary = this.props.primaryAccent ?? '#FF5A1F';
+    const secondary = this.props.secondaryAccent ?? '#D4FF3D';
+
+    const navItems = [
+      { key: 'home', icon: 'home', iconIsHome: true, active: page === 'home', onClick: () => this.setPage('home') },
+      { key: 'projects', icon: 'folder', iconIsFolder: true, active: page === 'projects', onClick: () => this.setPage('projects') },
+      { key: 'experience', icon: 'briefcase', iconIsBriefcase: true, active: page === 'experience', onClick: () => this.setPage('experience') },
+      { key: 'tools', icon: 'wrench', iconIsWrench: true, active: page === 'tools', onClick: () => this.setPage('tools') },
+    ];
+
+    const stats = [
+      { value: '+5', label: 'Years of Experience' },
+      { value: '+50', label: 'Projects Completed' },
+      { value: '+20', label: 'Worldwide Clients' },
+    ];
+
+    const NOT_LIVE = 'uploads/WEBSITE NOT LIVE.png';
+    const projects = [
+      {
+        id: 'ordinal', title: 'Ordinal', image: 'uploads/WEBSITE NOT LIVE (4).png', link: 'https://ordinal100.netlify.app/',
+        description: 'Ordinal is an automated crypto trading engine that turns TradingView signals into structured positions and executes, tracks, and manages trades across multiple exchanges in real time.',
+        contribution: ['Built the entire application from start to finish, including the TradingView alert system, trading engine, exchange integrations, position tracking, risk management, and trading dashboard. Built the system to handle multiple trades, partial orders, retries, and automated profit and loss management.'],
+      },
+      {
+        id: 'epicchain', title: 'Epicchain', image: 'uploads/EPIC.png', link: 'https://epicchain.io/',
+        description: 'Built a Real-World Asset (RWA) and stablecoin platform on Epic Chain, enabling users to interact with tokenized assets and on-chain financial flows.',
+        contribution: [
+          '- Developed full-stack architecture (React, Node.js, Web3)',
+          '- Implemented stablecoin-based transactions & settlement logic',
+          '- Integrated smart contracts for RWA tokenization',
+          '- Built user dashboards for asset tracking and on-chain activity',
+        ],
+      },
+      {
+        id: 'spaace', title: 'Spaace', image: 'uploads/Spaace.png', link: 'http://spaace.io',
+        description: 'Built a gamified NFT marketplace that boosts user retention through quests, leaderboards, and reward systems. Turned trading into an engaging experience with XP, token incentives, and referrals. Driving consistent on-chain activity and growth.',
+        contribution: ['I designed and built the entire gamification layer for this NFT marketplace, including quests, leaderboards, XP progression, on-chain reward distribution, and referrals. Owned the architecture from the contract side through to the front end, including how rewards were tracked, verified, and paid out.'],
+      },
+      {
+        id: 'sona', title: 'Sona', image: 'uploads/Sona.png', link: 'https://www.tars.pro',
+        description: 'Sona, the AI Agent for Solana, is your ultimate Web3 assistant, simplifying token trading and daily tasks for a seamless and efficient block.',
+        contribution: ['I built Sona, an AI agent for Solana that handles token trading and routine on-chain tasks through plain conversation. Designed it so users execute in a single prompt instead of moving between wallets, DEXs, and explorers.'],
+      },
+      {
+        id: 'tarsmarket', title: 'TARS AI Agents Marketplace', image: 'uploads/Tars AI Agent Marketplace.png', link: 'https://tars.pro/ai-market',
+        description: 'TARS AI Agents Marketplace is a platform for discovering and interacting with specialized AI agents built for different use cases and workflows.',
+        contribution: ['Built the entire marketplace end to end, including the frontend, backend, agent discovery system, APIs, database infrastructure, and AI integrations. Designed the architecture for listing, organizing, and interacting with AI agents and their workflows.'],
+      },
+      {
+        id: 'tarsgpt', title: 'TARS GPT', image: 'uploads/TarsGPT.png', link: 'https://tars.pro/search',
+        description: 'TARS GPT is an AI-powered Web3 search platform that allows users to discover and analyze blockchain data through natural-language queries, simplifying complex Web3 research.',
+        contribution: ['Built the entire application end to end, including the AI search system, backend, data processing pipeline, frontend, and Web3 integrations. Designed the system to interpret user queries, retrieve relevant blockchain data, and deliver results through a conversational interface.'],
+      },
+      {
+        id: 'hopetalia', title: 'Hopetalia', image: 'uploads/Hopetalia .png', link: 'https://apps.apple.com/us/app/hopetalia/id6463496551',
+        description: 'Hopetalia is a digital healthcare platform connecting patients with healthcare providers through online consultations, appointment booking, medical records, and remote care.',
+        contribution: ['Built the entire application end to end, including patient and doctor portals, appointment booking, video and chat consultations, medical report management, doctor profiles, and payment workflows. Developed the backend, frontend, and supporting infrastructure for the complete healthcare experience.'],
+      },
+      {
+        id: 'livepeer', title: 'Liverpeer', image: 'uploads/LIVEPEER.png', link: 'https://livepeer.org/',
+        description: 'Livepeer is a decentralized network for limitless video computing, enabling AI processing and transcoding jobs to power the future of video.',
+        contribution: ["I built on Livepeer's decentralized video network, integrating AI processing and transcoding jobs into a production pipeline that runs without centralized infrastructure."],
+      },
+      {
+        id: 'ako', title: 'AKO', image: 'uploads/AKO (1).png', link: 'https://www.ako.xyz',
+        description: 'AKO is a website that showcases our Twitter bot. Users can tag the bot on Twitter and request it to generate images of the character “AKO” performing actions such as running or waving. To use it, simply tag the AKO bot on Twitter followed by your request, and the bot will respond with the generated image. The website is designed to help users learn more about the bot, explore the types of images it can generate, and track usage logs in real time.',
+        contribution: ['I built AKO end to end, a Twitter bot that parses mentions into image generation requests and replies in thread, backed by a site with a live usage log. Owned the full stack, from the Twitter API listener and generation pipeline through to the real-time logging front end.'],
+      },
+      {
+        id: 'sibl', title: 'Security Investment Bank Limited', image: 'uploads/WEBSITE NOT LIVE (1).png', link: 'https://www.sibl.com.pk/',
+        description: 'SIBL is a Shariah-compliant financial institution offering financing solutions for cars, bikes, homes, solar systems, and appliances.',
+        contribution: ['Developed the website, including financing product pages, EMI calculator, responsive frontend, service sections, and investor information. Structured the platform to provide customers with easy access to financing options and banking services.'],
+      },
+      {
+        id: 'aidollar', title: 'AI Dollar', image: 'uploads/AI Dollar.png', link: 'https://www.figma.com/design/FIRa5A7YzRTIbhV2D1zOvI/casfa--Copy-',
+        description: 'I built an AI-driven social platform with on-chain creator monetization, end to end. Owned the recommendation and content generation layer, the engagement tracking that determines payouts, and the smart contract side that distributes rewards to creators. Wallet auth, token flow, and the social feed all had to hold together under real usage. Designed the payout mechanics so rewards track genuine engagement rather than volume gaming.',
+      },
+      {
+        id: 'uptrend', title: 'Uptrend', image: NOT_LIVE, link: 'https://uptrendapp.io/',
+        description: 'Uptrend is a social media platform built in a manner to incentivize creators and influencers to earn UP tokens based on their activities. Built the token reward distribution mechanism for them.',
+        contribution: ['Developed the whole blockchain token airdrop system for the application, users accumulated tokens through their social activity and then they can be claimed via the mechanism that we designed.'],
+      },
+      {
+        id: 'phnxstaking', title: 'Phnx Staking', image: NOT_LIVE, link: 'http://staking.phoenixdao.io/',
+        description: 'Phnx Staking protocol allows users holding Phnx tokens to stake them and earn yield.',
+        contribution: ['Developed the whole application'],
+      },
+      {
+        id: 'phnxdao', title: 'Phnx DAO', image: 'uploads/Phoenix DAO.png', link: 'https://www.phoenixdao.io/',
+        description: 'Another project belonging to the Phnx team, is a DAO where any user can pitch ideas to the PHNX community and have them approved through which he can earn investment to work on his idea.',
+        contribution: ['Developed the whole application'],
+      },
+      {
+        id: 'phnxevents', title: 'Phnx Events', image: NOT_LIVE, link: 'https://events.phoenixdao.io/',
+        description: 'This project allowed users to host events and also generate tickets NFTs for the various users to purchase and be able to attend the event. Different payment options were offered to purchase these tickets.',
+        contribution: ['Developed the whole application'],
+      },
+      {
+        id: 'phnxbridge', title: 'Phnx Bridge', image: NOT_LIVE, link: 'https://bridge.phoenixdao.io/',
+        description: 'This project allowed users to migrate their tokens from Ethereum to Binance and vice versa.',
+        contribution: ['Developed the whole application'],
+      },
+      {
+        id: 'tipply', title: 'Tipply Game', image: NOT_LIVE, link: 'https://x.com/DoYourTip/status/1468155121355866115',
+        description: 'Tipply Tank is NFT based blockchain game built on the Ethereum chain that allows you to raise fish NFTs called tipples and level them up. This game was then built to support enjin.',
+        contribution: ['Developed the whole application'],
+      },
+      {
+        id: 'hedge', title: 'Hedge Exchange', image: NOT_LIVE, link: null,
+        description: 'Hedge exchange is DEX with its own unique AMM taking inspiration from Uniswap v2 and Binance.',
+        contribution: ['Developed the whole application'],
+      },
+      {
+        id: 'polkalokr', title: 'Polkalokr Bridge', image: NOT_LIVE, link: 'https://bridgr.polkalokr.com/',
+        description: 'Polkalokr bridge is dapp that allows you to bridge tokens between Ethereum, binance and polygon while also deploying your own bridge for your token.',
+        contribution: ['Developed the whole application'],
+      },
+      {
+        id: 'kolnet', title: 'KOLNET', image: NOT_LIVE, link: 'https://kolnet.io/',
+        description: 'Kolner is a web3 marketing protocol which brings together project owners in search for marketing for their product and influencers that have a huge following and can market products.',
+        contribution: ['Developed the whole application'],
+      },
+      {
+        id: 'sonarbridge', title: 'Sonar Bridge', image: NOT_LIVE, link: 'https://bridge.sonar.studio/',
+        description: 'A bridge to transfer the PING tokens from Ethereum to Binance and vice versa.',
+        contribution: ['Developed the whole application'],
+      },
+      {
+        id: 'dafi', title: 'Dafi Staking Protocol', image: 'uploads/Dafi.png', link: 'https://stake.dafiprotocol.io/',
+        description: 'Dafi is a staking protocol using synthetic tokens, here you stake dafi and earn yield based on the price of the dafi token since you staked. It has a TVL of more than $3 million.',
+        contribution: ['Developed the Frontend, Backend, subgraph and integrated the smart contract on to the app'],
+      },
+      {
+        id: 'beesocial', title: 'Bee Social DEX Aggregator', image: NOT_LIVE, link: 'https://exchange.bees.social/',
+        description: 'Bee Social is a dex aggregator which basically generates the best swapping path on uni swap v2 and Binance v2 dex and proposes it to the users for an optimized swap.',
+        contribution: ['Developed the whole application, future tweaks were made after we were done with the project.'],
+      },
+      {
+        id: 'bullionfx', title: 'BullionFX DEX', image: 'uploads/BullionFX.png', link: 'http://bullionfx.com/',
+        description: 'A dex following the uni swap v2 mode, where users can trade between different tokens and coins, the unique thing about the dex is the inclusion of BullionFX’s very own gold token called GOLD, the dex also has its trading bots which stabilize the price of gold according to its real-world value. as trades move the price.',
+        contribution: ['Developed the Gold Token Bot to keep the gold price stable.'],
+      },
+      {
+        id: 'unipilot', title: 'Uniswap Paper Liquidity', image: NOT_LIVE, link: null,
+        description: "Unipilot is a CLM(Concentrated Liquidity Manager) built on top of Uniswap v3, Unipilot allows users to delegate their liquidity management to Uniswap v3 which through its active bots rebases the user's liquidity as the price moves out of the selected price range. This was built but not live so here is the GitHub repo.",
+        contribution: ['Implemented the whole frontend and mechanism of how it works along with the maths.'],
+        repoLinks: ['https://github.com/Devleed/unifree', 'https://github.com/Devleed/unifree-frontend'],
+      },
+      {
+        id: 'numio', title: 'Numio Ethereum Wallet and Defi', image: NOT_LIVE, link: 'https://www.rootdata.com/projects/detail/Numio?k=MTk2NQ%3D%3D',
+        description: 'Numio is a mobile application acting as a user-friendly crypto wallet where non-technical users who do not want to deal with concepts like seed phrases, private keys or gas can get into crypto. It even supports layer 2 technology by allowing you to transfer funds to and from zksync. It even has social logins and social recovery features.',
+        contribution: ['Developed the Gold Token Bot to keep the gold price stable.'],
+      },
+      {
+        id: 'emberlending', title: 'Ember NFT Lending and Borrowing', image: NOT_LIVE, link: 'https://emberfund.io/',
+        description: "In Ember, you can Lend out your NFTs so potential borrowers for a price who can then use it to play games and earn yield and return the NFT back in a trustless manner. It's non-collateral and requires zero adoption from games, it also does not involve using custodial wallets. Its not live yet but its definitely majorly built.",
+        contribution: ['Developed the whole application'],
+      },
+      {
+        id: 'emberwallet', title: 'Ember Wallet', image: 'uploads/Ember Wallet.png', link: 'https://emberfund.io/',
+        description: 'Ember is another web3 wallet which supports all EVM-compatible chains and aims to make the UX of common users easier and more smooth, its uses MPC technology + cryptography to implement social login and social recovery and even offers free-of-cost ENS usernames. It is yet to be live but you can track updates regarding it here.',
+        contribution: ['Developed the whole application'],
+      },
+      {
+        id: 'scripttv', title: 'Script TV', image: NOT_LIVE, link: 'https://script-web.vercel.app/',
+        description: 'Script TV is a streaming dapp where just like StepN where you earn by equipping sneaker NFTs and going for a run, here you stream different types of movies by equipping certain glass NFTs and based on that you are rewarded tokens as reward.',
+        contribution: ['Designed the smart contract token and NFTs to be used'],
+      },
+      {
+        id: 'metadot', title: 'Metadot', image: 'uploads/Metadot.png', link: 'https://chrome.google.com/webstore/detail/metadot/oaflcnnojihjhojgaagkonkfocbjeane',
+        description: 'Metadot is a web3 wallet developed for the Polkadot ecosystem, providing you an easy UX to explore the polkadot ecosystems and transfer your funds between various parachains. This project won 2nd place in Polkadot’s encode club hackathon and was even inducted into their accelerator program. It even live in the chrome web store.',
+        contribution: ['Developed the whole application'],
+      },
+      {
+        id: 'apelaunchpad', title: 'Ape Launchpad', image: 'uploads/Ape Launchpad (1).png', link: 'https://www.cointerminal.com/',
+        description: 'A Launchpad made for projects to onboard and launch their IDO for participants to get a change to win.',
+        contribution: ['Developed the whole application'],
+      },
+    ];
+
+    projects.sort((a, b) => (a.image === NOT_LIVE ? 1 : 0) - (b.image === NOT_LIVE ? 1 : 0));
+
+    const featuredIds = ['spaace', 'sona', 'aidollar', 'tarsmarket', 'ako'];
+    const featuredProjects = featuredIds.map(id => projects.find(p => p.id === id)).filter(Boolean);
+
+    const experienceList = [
+      { company: 'DROX LABS', link: 'https://droxlabs.com/', dates: '2023 - Present', description: '● Founded and scaled the company, leading a team of 30+ developers. ● Spearheaded end-to-end delivery of large-scale blockchain, AI, and Web3 projects for international clients. ● Managed projects like Snakee, APE Launchpad, Tars, Dojo, Spaace ● Directed business strategy, partnerships, and client acquisition, driving consistent revenue growth. ● Oversaw project management, quality assurance, and product innovation, ensuring high client satisfaction. ● Established a culture of innovation, collaboration, and technical excellence within the organisation.' },
+      { company: 'XORD', link: 'http://xord.com/', dates: '2020-2023', description: '● Developing and Testing Various Ethereum Smart Contracts for projects, ● Integrating Blockchain APIs and SDK into the MERN stack. ● Studying and then implementing many well-known web3 protocols. ● Setting up and deploying a Geth Ethereum client node. ● Building and training my own blockchain team. ● Understanding client requirements and proposing professional and high-level blockchain solutions and architecture. ● Keeping tabs on current affairs and providing a technical vision for the company.' },
+    ];
+
+    const toolsList = [
+      { name: 'Ethers.js', image: 'https://framerusercontent.com/images/raxaMYE47eiBppJZqPijbZIR24.png', bg: '#0b1220', placeholder: false },
+      { name: 'React', image: 'https://framerusercontent.com/images/QqRi3jH9J4V5t9JA3EwcoANVYyg.png', bg: '#0b1220', placeholder: false },
+      { name: 'Solidity', image: 'https://framerusercontent.com/images/qsTpncWKptbXpsZ6aTG8yh1Ic.png', bg: '#111111', placeholder: false },
+      { name: 'Java', image: 'https://framerusercontent.com/images/8G1VDa9kwXB20NYb0quA1qD1Q8.png', bg: '#111111', placeholder: false },
+      { name: 'JavaScript', image: 'https://framerusercontent.com/images/mPKCk5DLsYVzVAeh0kHx2Vh8rYU.webp', bg: '#111111', placeholder: false },
+      { name: 'Claude', image: 'https://framerusercontent.com/images/JRTf7Lhiw808aQqmGOm1MUb1AQY.png', bg: '#111111', placeholder: false },
+      { name: 'OpenAI', image: 'https://framerusercontent.com/images/9tzmHUXk01lNrQoJmx8n0Ho7FWM.webp', bg: '#111111', placeholder: false },
+      { name: 'LangChain', image: 'https://framerusercontent.com/images/ZLgjHE4KZfTGXHPuXdmwo1nuQ.png', bg: '#111111', placeholder: false },
+      { name: 'Gemini', image: 'https://framerusercontent.com/images/PuE1OO266zyRVFk7Og1uaKrFa5w.webp', bg: '#111111', placeholder: false },
+      { name: 'Rust', image: 'uploads/Rust.png', bg: '#ffffff', placeholder: false },
+      { name: 'Android', image: 'uploads/Andriod (1).jpg', bg: '#ffffff', placeholder: false },
+      { name: 'Flutter', image: 'uploads/Flutter (1).png', bg: '#ffffff', placeholder: false },
+      { name: 'Solana', image: 'uploads/Solana (1).jpg', bg: '#ffffff', placeholder: false },
+      { name: 'MQTT', image: 'uploads/MQTT (1).png', bg: '#ffffff', placeholder: false },
+    ];
+
+    const toolsWithBg = toolsList.map(t => ({ ...t, bgImage: t.image ? 'url("' + encodeURI(t.image) + '")' : 'none' }));
+
+    return {
+      navItems, stats, featuredProjects, allProjects: projects, experienceList, toolsList: toolsWithBg,
+      isHome: page === 'home', isProjects: page === 'projects', isExperience: page === 'experience', isTools: page === 'tools',
+      submitLabel: this.state.submitLabel,
+      handleSubmit: (e) => this.handleSubmit(e),
+      primary, secondary,
+    };
+  }
+}
+</script>
+</body>
+</html>
